@@ -1,0 +1,31 @@
+body {
+  background-color:#999999;
+  /* background-image: url('wall2.jpeg'); */
+  background-repeat: no-repeat;
+  /* background-position: 90% 50%; */
+  background-attachment: scroll;
+  background-size: cover;
+}
+h1 {
+  color: yellow;
+}
+.farqli {
+  color: white;
+  width: 100px;
+  height: 100px;
+  background-color: antiquewhite;
+}
+#birinchi {
+  font-size: 30px;
+  /* border-width: 2px;
+  border-color: green;
+  border-style: dotted;
+  border-radius: 30px; */
+  border: 1px solid green;
+  padding-top: 100px;
+  margin-left: 300px;
+}
+p {
+  color: rgba(255, 0, 0, 0.5);
+  font-size: 30px;
+}

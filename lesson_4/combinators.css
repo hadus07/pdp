@@ -1,0 +1,51 @@
+/* .cont1 > p {
+  color: red;
+} */
+
+.important ~ p {
+  color: red;
+}
+
+a:visited {
+  font-size: 40px;
+}
+
+#box {
+  max-width: 100px;
+  background-color: #f1f1f1;
+  display: none;
+  text-align: center;
+}
+
+#box p {
+  padding: 10px 0px;
+}
+
+#box p:hover {
+  cursor: pointer;
+  background-color: #777;
+  color: #fff;
+}
+
+#boxCont button:hover + div {
+  display: block;
+}
+
+#boxCont input:checked + div {
+  display: block;
+}
+
+input {
+  display: none;
+}
+
+label {
+  border: 1px solid blue;
+  display: inline-block;
+  padding: 10px 8px;
+  /* margin: 10px 8px; */
+  font-size: 12px;
+  color: blue;
+  cursor: pointer;
+  border-radius: 5px;
+}
