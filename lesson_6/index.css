@@ -1,0 +1,38 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+#cont {
+	display: grid;
+	grid-gap: 20px;
+}
+
+@media only screen and (max-width: 420px) {
+	#cont {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media only screen and (min-width: 421px) and (max-width: 800px) {
+	#cont {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media only screen and (min-width: 801px) {
+	#cont {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+#cont div {
+	background-color: aquamarine;
+	/* width: 100%; */
+	height: 200px;
+	border: 1px solid red;
+	font-size: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
