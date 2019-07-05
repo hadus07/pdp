@@ -18,4 +18,4 @@
 3. `null`
 4. `undefined`
 5. `boolean`
-6. `~~(symbol)~~`
+6. ~~`(symbol)`~~
