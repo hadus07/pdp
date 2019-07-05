@@ -56,3 +56,7 @@
 | `&&` | (and) mantiqiy ko'paytirish |
 | `\|\|` | (or) mantiqiy qo'shish |
 | `!` | (not) mantiqiy inkor |
+
+# Uyga vazifa
+
+> Darsda o'tilganlarni takrorlab kelish 
