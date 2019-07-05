@@ -40,18 +40,18 @@
 ![](https://i.stack.imgur.com/35MpY.png)
 
 ## Math operations (Matematik amallar)
-
- | `+` | qo'shish |
- | `-` | ayrish |
- | `*` | ko'paytirish |
- | `/` | bo'lish |
- | `%`        | qoldiq |
- | `==` `===` | tenglik amali |
- | `!=` `!==` | inkor amali |
- | `>`        | katta |
- | `<` | kichik |
- | `>=` | katta yoki teng |
- | `<=` | kichik yoki teng |
- | `&&` | (and) mantiqiy ko'paytirish |
- | `||` | (or) mantiqiy qo'shish |
- | `!` | (not) mantiqiy inkor |
+|-----|----------|
+| `+` | qo'shish |
+| `-` | ayrish |
+| `*` | ko'paytirish |
+| `/` | bo'lish |
+| `%` | qoldiq |
+| `==` `===` | tenglik amali |
+| `!=` `!==` | inkor amali |
+| `>` | katta |
+| `<` | kichik |
+| `>=` | katta yoki teng |
+| `<=` | kichik yoki teng |
+| `&&` | (and) mantiqiy ko'paytirish |
+| `||` | (or) mantiqiy qo'shish |
+| `!` | (not) mantiqiy inkor |
