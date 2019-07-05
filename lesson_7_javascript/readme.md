@@ -54,5 +54,5 @@
 | `>=` | katta yoki teng |
 | `<=` | kichik yoki teng |
 | `&&` | (and) mantiqiy ko'paytirish |
-| `||` | (or) mantiqiy qo'shish |
+| `\|\|` | (or) mantiqiy qo'shish |
 | `!` | (not) mantiqiy inkor |
