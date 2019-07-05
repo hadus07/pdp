@@ -40,7 +40,8 @@
 ![](https://i.stack.imgur.com/35MpY.png)
 
 ## Math operations (Matematik amallar)
-|-----|----------|
+| Amallar | Ma'nosi |
+| --- | -------- |
 | `+` | qo'shish |
 | `-` | ayrish |
 | `*` | ko'paytirish |
