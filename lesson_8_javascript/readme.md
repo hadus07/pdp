@@ -1,1 +1,1 @@
-#(Javascript Reference (Javascript haqidagi barcha malumotlar))[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference]
+#[Javascript Reference (Javascript haqidagi barcha malumotlar)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
