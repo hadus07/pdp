@@ -16,18 +16,20 @@
 // let fruit = 'Shaftoli'
 // let fruit2 = fruit
 
-let person1 = {
-  name: 'Anvar',
-  age: 22,
-  address: {
-    region: 'Toshkent',
-    district: 'Mirobod'
-  }
-}
+// let person1 = {
+//   name: 'Anvar',
+//   age: 22,
+//   address: {
+//     region: 'Toshkent',
+//     district: 'Mirobod'
+//   }
+// }
 
-let temp = person1
+// console.log(person1.address.district)
 
-person1.name = 'Jobir'
+// let temp = person1
+
+// person1.name = 'Jobir'
 
 // console.log(temp.name)
 
@@ -40,6 +42,8 @@ person1.name = 'Jobir'
 //   {name: 'Sobir', age: 26},
 // ]
 
+// console.log(people[0].age)
+
 // let ozgaruvchi = 'age'
 // console.log(person1.name + ' ' + person1[ozgaruvchi] + ' yoshda.')
 
@@ -49,4 +53,8 @@ person1.name = 'Jobir'
 
 // console.log(yangiRaqam + 1)
 
-console.log(Number.parseInt(3/2))
+// console.log(Number.parseInt(3/2))
+
+// let name = 'anvar'
+
+// console.log(name.toUpperCase())
