@@ -2,32 +2,32 @@ function log(data) {
     console.log(JSON.stringify(data, null, 4))
 }
 
-// function deepCopy(obj) {
-//     let tmp
-//     let keys = Object.keys(obj)
-//     for(let i = 0; i < keys.length; i++) {
-//         if(typeof obj[keys[i]] !== 'object') {
-//             tmp = Object.assign({}, obj[keys[i]])
-//         }else {
-//             deepCopy(obj[keys[i]])
-//         }
-//     }
-
-//     return tmp
-// }
-
 function deepCopy(obj) {
-    let tmp = null
-    Object.keys(obj).map(key => {
-        if (typeof key !== 'object') {
+    let tmp
+    let keys = Object.keys(obj)
+    for(let i = 0; i < keys.length; i++) {
+        if(typeof obj[keys[i]] !== 'object') {
             tmp = Object.assign({}, obj)
-        } else {
-            deepCopy(key)
+        }else {
+            tmp[keys[i]] = deepCopy(obj[keys[i]])
         }
-    })
+    }
 
     return tmp
 }
+
+// function deepCopy(obj) {
+//     let tmp = null
+//     Object.keys(obj).map(key => {
+//         if (typeof obj[key] !== 'object') {
+//             tmp = Object.assign({}, obj)
+//         } else {
+//             tmp[key] = deepCopy(obj[key])
+//         }
+//     })
+
+//     return tmp
+// }
 
 const person1 = {
     name: 'Anvar',
