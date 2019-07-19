@@ -50,36 +50,48 @@
 // console.log(name.toUpper())
 // console.log(name.length)
 
-class Arr {
-    constructor() {
-        this.data = arguments
-    }
+// class Arr {
+//     constructor() {
+//         this.data = arguments
+//     }
 
-    get length() {
-        let count = 0
-        while(this.data[count] !== undefined) {
-            count++
-        }
-        return count
-    }
+//     get length() {
+//         let count = 0
+//         while(this.data[count] !== undefined) {
+//             count++
+//         }
+//         return count
+//     }
 
-    display() {
-        let tmp = ''
-        for(let i = 0; i < this.length; i++) {
-            tmp += this.data[i] + ', '
-        }
-        return tmp
-    }
+//     display() {
+//         let tmp = ''
+//         for(let i = 0; i < this.length; i++) {
+//             tmp += this.data[i] + ', '
+//         }
+//         return tmp
+//     }
 
-    push(newElement) {
-        this.data[this.length] = newElement
-    }
+//     push(newElement) {
+//         this.data[this.length] = newElement
+//     }
+// }
+
+// let a = new Arr(1, 2, 3, 4, 5, 6, 7)
+
+// a.push(8)
+
+// a.push(10000)
+
+// document.write(a.display())
+
+function Str(data) {
+    this.data = data
 }
 
-let a = new Arr(1, 2, 3, 4, 5, 6, 7)
+Str.prototype.pow = function() {
+    return this.data * this.data
+}
 
-a.push(8)
+let a = new Str(7)
 
-a.push(10000)
-
-document.write(a.display())
+console.log(a.pow())
