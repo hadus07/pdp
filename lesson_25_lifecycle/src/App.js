@@ -1,41 +1,31 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { BrowserRouter, Link, Route } from 'react-router-dom'
 
-const App = () => {
-  const [count, changeCount] = useState(0)
-  const [isButtonVisible, changeVisibility] = useState(true)
-  return (
-      <>
-        <button onClick={() => changeCount(count - 1)}>-</button>
-        <span>{count}</span>
-        {isButtonVisible && (
-          <button
-            onClick={() => {
-              count > 4 && changeVisibility(false)
-              changeCount(count + 1)
-            }}
-          >+</button>
-        )}
-      </>
-    )
+import { changeCount, clearCount } from './store'
+import PageOne from './PageOne'
+import PageTwo from './PageTwo'
 
+class App extends React.Component {
+
+  render() {
+    return (
+      <BrowserRouter>
+        <ul>
+          <li>
+            <Link to="/">Page 1</Link>
+          </li>
+          <li>
+            <Link to="/page2">Page 2</Link>
+          </li>
+        </ul>
+        <button onClick={changeCount}>+</button>
+        <br/>
+        <button onClick={clearCount}>clear</button>
+        <Route path="/" exact component={PageOne}/>
+        <Route path="/page2" component={PageTwo}/>
+      </BrowserRouter>
+    );
+  }
 }
 
-// class App extends React.Component {
-
-  // state = {
-  //   count: 0,
-  //   isButtonVisible: true,
-  // }
-
-//   render() {
-//     return (
-//       <>
-//         <button onClick={() => this.setState({count: this.state.count - 1})}>-</button>
-//         <span>{this.state.count}</span>
-//         <button onClick={() => this.setState({count: this.state.count + 1})}>+</button>
-//       </>
-//     )
-//   }
-// }
-
-export default App
+export default App;
