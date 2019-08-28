@@ -11,6 +11,7 @@ class Home extends React.Component {
         page_size: 5,
         companies: [],
         page_number: 1,
+        loading: false,
     }
 
     componentDidMount() {
@@ -21,20 +22,23 @@ class Home extends React.Component {
         let res
         let url = `${URL}companies?api_key=${TOKEN}&page_number=${this.state.page_number}&page_size=${this.state.page_size}&query=${this.state.query}`
         try {
-            res = await fetch(url)
-            res = await res.json()
-            // console.log(res)
-            this.setState({companies: res.data, count: res.result_count})
+            this.setState({loading: true}, async () => {
+                res = await fetch(url)
+                res = await res.json()
+                // console.log(res)
+                this.setState({
+                    loading: false,
+                    companies: res.data,
+                    count: res.result_count,
+                })
+            })
         } catch(error) {
             console.log(error)
         }
     }
 
     onChangePage = page_number => {
-        this.setState({page_number: page_number + 1}, () => {
-            this.getCompanies()
-            console.log(page_number)
-        })
+        this.setState({page_number: page_number + 1}, this.getCompanies)
     }
 
     onChangeRowsPerPage = page_size => {
@@ -48,7 +52,11 @@ class Home extends React.Component {
     render() {
         return (
             <>
-                <Search value={this.state.query} onChange={this.onSearch} />
+                <Search
+                    value={this.state.query}
+                    onChange={this.onSearch}
+                    loading={this.state.loading}
+                />
                 <List
                     {...this.state}
                     page_number={this.state.page_number-1}

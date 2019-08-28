@@ -28,7 +28,7 @@ class List extends React.Component {
                 <MaterialList className={classes.listCont}>
                     {this.props.companies.map(company => (
                         <Link
-                            key={company.lei}
+                            key={company.ticker}
                             className={classes.link}
                             to={{
                                 pathname: '/info',
