@@ -10,26 +10,15 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 
 const styles = {
-    cont: {
-        width: universalWidth
-    },
-    title: {
-        marginTop: 20,
-    },
-    indent: {
-        marginLeft: 20,
-    },
-    link: {
-        textDecoration: 'none',
-        color: 'inherit',
-    }
+    title: { marginTop: 20 },
+    indent: { marginLeft: 20 },
+    cont: { width: universalWidth },
+    link: { color: 'inherit', textDecoration: 'none' }
 }
 
 class Info extends React.Component {
 
-    state = {
-        info: null
-    }
+    state = { info: null }
 
     componentDidMount() {
         this.getInfo()
@@ -101,9 +90,9 @@ class Info extends React.Component {
 
 const Title = withStyles(styles)(props => (
     <Typography
-        className={props.classes.title} 
-        color="textSecondary"
         gutterBottom
+        color="textSecondary"
+        className={props.classes.title} 
     >
         {props.children}
     </Typography>

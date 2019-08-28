@@ -2,30 +2,18 @@ import React from 'react'
 import { URL, TOKEN } from '../env'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/styles'
+import Pagination from '../components/Pagination'
 import { universalWidth } from '../helper/constants'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
-import TablePagination from '@material-ui/core/TablePagination'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 
 const styles = {
-    cont: {
-        width: universalWidth,
-        marginTop: 20,
-    },
-    pagination: {
-        width: '95%',
-    },
-    link: {
-        textDecoration: 'none',
-        color: 'inherit',
-    },
-    exp: {
-        display: 'flex',
-        flexDirection: 'column',
-    }
+    cont: { marginTop: 20, width: universalWidth },
+    exp: { display: 'flex', flexDirection: 'column' },
+    link: { color: 'inherit', textDecoration: 'none' },
 }
 
 class News extends React.Component {
@@ -55,10 +43,7 @@ class News extends React.Component {
     }
 
     onChangePage = page_number => {
-        this.setState({page_number: page_number + 1}, () => {
-            this.getNews()
-            // console.log(page_number)
-        })
+        this.setState({page_number: page_number + 1}, () => this.getNews)
     }
 
     onChangeRowsPerPage = page_size => {
@@ -74,7 +59,9 @@ class News extends React.Component {
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                             <div className={classes.exp}>
                                 <Typography variant='button'>{item.title}</Typography>
-                                <Typography color='primary' variant='caption'>{item.publication_date}</Typography>
+                                <Typography color='primary' variant='caption'>
+                                    {item.publication_date}
+                                </Typography>
                             </div>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
@@ -87,16 +74,15 @@ class News extends React.Component {
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                 ))}
-                <TablePagination
+                <Pagination
                     {...this.state}
-                    component='div'
                     page={this.state.page_number}
-                    className={classes.pagination}
-                    rowsPerPageOptions={[5, 7, 10]}
                     rowsPerPage={this.state.page_size}
                     page_number={this.state.page_number-1}
-                    onChangePage={(event, page) => this.onChangePage(page)}
-                    onChangeRowsPerPage={({ target }) => this.onChangeRowsPerPage(target.value)}
+                    onChangePage={page => this.onChangePage(page)}
+                    onChangeRowsPerPage={({ target }) => 
+                        this.onChangeRowsPerPage(target.value)
+                    }
                 />
             </>
         )

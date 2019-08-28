@@ -4,10 +4,10 @@ import Avatar from '@material-ui/core/Avatar'
 import { withStyles } from '@material-ui/styles'
 import MaterialList from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
+import Pagination from '../components/Pagination'
 import Typography from '@material-ui/core/Typography'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
-import TablePagination from '@material-ui/core/TablePagination'
 
 const styles = {
     cont: {
@@ -16,16 +16,8 @@ const styles = {
         alignItems: 'flex-end',
         flexDirection: 'column',
     },
-    listCont: {
-        width: '100%',
-    },
-    pagination: {
-        width: '95%',
-    },
-    link: {
-        textDecoration: 'none',
-        color: 'inherit',
-    }
+    listCont: { width: '100%' },
+    link: { color: 'inherit', textDecoration: 'none' }
 }
 
 class List extends React.Component {
@@ -59,14 +51,11 @@ class List extends React.Component {
                         </Link>
                     ))}
                 </MaterialList>
-                <TablePagination
+                <Pagination
                     {...this.props}
-                    component='div'
                     page={this.props.page_number}
-                    className={classes.pagination}
-                    rowsPerPageOptions={[5, 7, 10]}
                     rowsPerPage={this.props.page_size}
-                    onChangePage={(event, page) => this.props.onChangePage(page)}
+                    onChangePage={page => this.props.onChangePage(page)}
                 />
             </div>
         )

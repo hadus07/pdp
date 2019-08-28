@@ -6,11 +6,11 @@ import Search from '../components/Search'
 class Home extends React.Component {
 
     state = {
-        page_number: 1,
-        companies: [],
-        page_size: 5,
         count: 0,
         query: '',
+        page_size: 5,
+        companies: [],
+        page_number: 1,
     }
 
     componentDidMount() {
@@ -53,7 +53,9 @@ class Home extends React.Component {
                     {...this.state}
                     page_number={this.state.page_number-1}
                     onChangePage={page => this.onChangePage(page)}
-                    onChangeRowsPerPage={({ target }) => this.onChangeRowsPerPage(target.value)}
+                    onChangeRowsPerPage={({ target }) => 
+                        this.onChangeRowsPerPage(target.value)
+                    }
                 />
             </>
         )

@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { universalWidth } from '../helper/constants'
 
 const styles = {
+  search: { width: '90%' },
   paper: {
     display: 'flex',
     marginTop: '5vh',
@@ -14,7 +15,6 @@ const styles = {
     width: universalWidth,
     justifyContent: 'space-between',
   },
-  search: { width: '90%' },
 }
 
 class Search extends React.Component {
