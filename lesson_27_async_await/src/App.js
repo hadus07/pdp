@@ -10,8 +10,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getItem()
-	console.log('hi')
+    // this.getItem()
+	// console.log('hi')
   }
 
   getItemOld = () => {
