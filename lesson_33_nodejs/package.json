@@ -1,0 +1,19 @@
+{
+  "name": "lesson_33_nodejs",
+  "version": "1.0.0",
+  "description": "NImadir",
+  "repository": "https://github.com/hadus07/pdp.git",
+  "main": "http.js",
+  "scripts": {
+    "dev": "nodemon http.js"
+  },
+  "keywords": ["online", "shop"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
+}
