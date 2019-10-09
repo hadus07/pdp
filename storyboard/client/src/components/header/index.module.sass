@@ -1,0 +1,19 @@
+.header 
+    width: 100vw
+    height: 100vh
+    overflow: hidden
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    justify-content: space-between
+    perspective: 800px
+
+.background 
+    width: 100vw
+    z-index: -1
+    height: 90vh
+    filter: blur(2px)
+    position: absolute
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 85%)
+    background-image: url('../../assets/images/bg.jpeg')

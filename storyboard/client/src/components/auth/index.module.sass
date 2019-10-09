@@ -1,0 +1,31 @@
+.auth 
+    width: 25vw
+    height: 60vh
+    margin-right: 5vw
+    margin-bottom: 5vw
+    border-radius: 10px
+    position: relative
+    overflow: hidden
+    box-shadow: 0px 10px 50px -10px rgba(0,0,0,0.5)
+    padding: 20px
+
+.animated
+    animation: rotate 0.4s ease-in-out
+
+.auth::before 
+    content: ''
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    display: block
+    filter: blur(6px)
+    background-color: rgba(0,0,0,0.7)
+    z-index: -1
+    left: 0
+
+@keyframes rotate
+    0%
+        transform: rotateY(180deg)
+    100%
+        transform: rotateY(0deg)
