@@ -5,10 +5,14 @@ import { Register } from './register'
 
 export class Auth extends React.PureComponent {
 
+    timerID = null
+
     state = { login: true, animate: false }
 
     handlePageChange = () => {
+        clearInterval(this.timerID)
         this.setState({ login: !this.state.login, animate: true })
+        this.timerID = setTimeout(() => this.setState({animate: false}), 500)
     }
 
     render() {

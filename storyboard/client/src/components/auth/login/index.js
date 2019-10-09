@@ -13,7 +13,7 @@ export const Login = props => (
             placeholder='Password'
             type='password'    
         />
-        <Button title='Login'/>
+        <Button title='Login' full/>
 
         <p onClick={props.onPageChange}>
             Dont have an account? Register

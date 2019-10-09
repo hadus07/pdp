@@ -17,7 +17,7 @@ export const Register = props => (
             placeholder='Confirm Password'
             type='password'    
         />
-        <Button title='Register'/>
+        <Button title='Register' full/>
 
         <p onClick={props.onPageChange}>
             Already have an account? Log in
