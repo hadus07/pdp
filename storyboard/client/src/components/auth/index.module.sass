@@ -1,29 +1,30 @@
 .auth 
     width: 25vw
     height: 60vh
+    padding: 20px
+    overflow: hidden
     margin-right: 5vw
+    position: relative
     margin-bottom: 5vw
     border-radius: 10px
-    position: relative
-    overflow: hidden
-    box-shadow: 0px 10px 50px -10px rgba(0,0,0,0.5)
-    padding: 20px
     transition: opacity 0.6s ease-in
+    box-shadow: 0px 10px 50px -10px rgba(0,0,0,0.5)
 
 .animated
+    transform-style: preserve-3d
     animation: rotate 0.4s ease-in-out
 
 .auth::before 
+    top: 0
+    left: 0
     content: ''
+    z-index: -1
     width: 100%
     height: 100%
-    position: absolute
-    top: 0
     display: block
     filter: blur(4px)
+    position: absolute
     background-color: rgba(0,0,0,0.7)
-    z-index: -1
-    left: 0
 
 @keyframes rotate
     0%
