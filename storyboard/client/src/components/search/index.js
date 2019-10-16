@@ -29,7 +29,7 @@ export class Search extends React.PureComponent {
     addScrollerClass = () => {
         this.timerID = setTimeout(() => {
             this.setState({ scrollerClassVisible: false })
-        }, 2000)
+        }, 6000)
     }
 
     render() {

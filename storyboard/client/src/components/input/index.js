@@ -4,7 +4,7 @@ import React from 'react'
 export const Input = props => (
     <input
         {...props}
-        className={styles.input}
         type={props.type || 'text'}
+        className={props.inverted ? styles.inputInverted : styles.input}
     />
 )
