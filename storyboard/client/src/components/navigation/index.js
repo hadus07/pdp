@@ -2,14 +2,6 @@ import styles from './index.module.sass'
 import React from 'react'
 import { navigation } from '../../constants'
 
-const scroll = index => {
-    window.scrollTo({
-        left: 0,
-        behavior: 'smooth',
-        top: index * window.innerHeight,
-    })
-}
-
 export const Navigation = props => (
     <div className={styles.navigation}>
         <nav className={styles.nav}>
@@ -17,7 +9,7 @@ export const Navigation = props => (
                 <span
                     key={item.link}
                     className={styles.navItem}
-                    onClick={() => scroll(index)}                    
+                    onClick={() => props.scrollTo(index)}                    
                 >
                     {item.name}
                 </span>

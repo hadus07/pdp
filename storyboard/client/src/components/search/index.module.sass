@@ -1,6 +1,7 @@
 .cont
     width: 100vw
     height: 100vh
+    padding-top: 10vh
 
 .searchCont
     width: 100%
@@ -38,14 +39,14 @@
     margin-left: -1em
     
 .listNoScroller
-    overflow: -moz-scrollbars-none
     -ms-overflow-style: none
+    overflow: -moz-scrollbars-none
     &::-webkit-scrollbar
         width: 0 !important
 
 .listCont
     width: 60%
-    height: 85%
+    height: 90%
     padding: 20px
     margin-left: 20%
     overflow: scroll
@@ -53,13 +54,13 @@
     animation: popup 500ms ease-in-out
 
 .list
-    animation: popup 500ms cubic-bezier(0.3, 0.38, 0.2, 1.36)
     display: flex
     cursor: pointer
     margin-bottom: 4vw
     position: relative
     border-radius: 10px
     background-color: white
+    animation: popup 500ms cubic-bezier(0.3, 0.38, 0.2, 1.36)
 
     &:hover
         box-shadow: 0px 20px 25px -10px rgba(0,0,0,0.2)

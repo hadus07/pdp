@@ -10,9 +10,15 @@ import { Subscription } from '../../components/subscription/'
 
 export class Home extends React.PureComponent {
 
+    scroll = index => this.cont.scrollTo({
+        left: 0,
+        behavior: 'smooth',
+        top: index * window.innerHeight,
+    })
+
     render = () => (
-        <div className={styles.cont}>
-            <Navigation />
+        <div className={styles.cont} ref={r => this.cont = r}>
+            <Navigation scrollTo={this.scroll}/>
             <Header />
             <Random />
             <Search />
