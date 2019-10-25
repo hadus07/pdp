@@ -1,7 +1,8 @@
-import styles from './index.module.sass'
 import React from 'react'
 import { Input } from '../../input'
 import { Button } from '../../button'
+import { pageNames } from '../constants'
+import styles from './index.module.sass'
 
 export const Register = props => (
     <form className={styles.register}>
@@ -19,7 +20,7 @@ export const Register = props => (
         />
         <Button title='Register' full/>
 
-        <p onClick={props.onPageChange}>
+        <p onClick={() => props.onPageChange(pageNames.login)}>
             Already have an account? Log in
         </p>
     </form>

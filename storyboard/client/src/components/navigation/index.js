@@ -4,6 +4,8 @@ import { navigation } from '../../constants'
 
 export const Navigation = props => (
     <div className={styles.navigation}>
+        <label htmlFor='checkbox'>☰</label>
+        <input type='checkbox' id='checkbox'/>
         <nav className={styles.nav}>
             {navigation.map((item, index) => (
                 <span

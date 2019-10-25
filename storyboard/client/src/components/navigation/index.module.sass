@@ -1,38 +1,77 @@
-.navigation 
-    display: flex
-    justify-content: center
-    align-items: flex-start
-    width: 100vw
-    position: fixed
-    top: 0
-    z-index: 1000
-    background-color: #000000
+@media only screen and (max-width: 699px)
+    .navigation
+        width: 100vw
+        height: 50px
+        position: relative
+        background-color: black
+        label
+            top: 2px
+            right: 20px
+            color: white
+            z-index: 101
+            font-size: 2em
+            position: fixed
+            cursor: pointer
+        input
+            display: none
+            &:checked + .nav
+                display: flex
+        
+    .nav
+        width: 100vw
+        z-index: 100
+        height: 100vh
+        display: none
+        position: fixed
+        align-items: center
+        flex-direction: column
+        justify-content: center
+        background-color: rgba(0,0,0,0.8)
+        .navItem
+            color: white
+            padding: 10px
+            cursor: pointer
+            font-size: 1.4em
 
-.nav
-    overflow: hidden
-    position: relative
+
+@media only screen and (min-width: 700px)
+    .navigation 
+        display: flex
+        justify-content: center
+        align-items: flex-start
+        width: 100vw
+        position: fixed
+        top: 0
+        z-index: 1000
+        background-color: #000000
+        input
+            display: none
+
+    .nav
+        overflow: hidden
+        position: relative
 
 
-.nav:before 
-    content: ''
-    width: 100%
-    height: 100%
-    z-index: -1
-    filter: blur(3px)
-    position: absolute
+    .nav:before 
+        content: ''
+        width: 100%
+        height: 100%
+        z-index: -1
+        filter: blur(3px)
+        position: absolute
 
-.navItem 
-    color: #ddd
-    font-size: 1rem
-    cursor: pointer
-    font-weight: 400
-    padding: 15px 25px
-    letter-spacing: 1px
-    display: inline-block
-    text-decoration: none
-    text-transform: uppercase
-    transition: background-color 0.2s ease-out
+    .navItem 
+        color: #ddd
+        font-size: 1rem
+        cursor: pointer
+        font-weight: 400
+        padding: 15px 25px
+        letter-spacing: 1px
+        display: inline-block
+        text-decoration: none
+        text-transform: uppercase
+        transition: background-color 0.2s ease-out
 
-.navItem:hover 
-    background-color: #85830a
-    color: #fff
+    .navItem:hover 
+        background-color: #85830a
+        color: #fff
