@@ -1,0 +1,26 @@
+$h: 42px
+
+.editor
+    height: calc(100vh - #{$h})
+.overlay
+    top: 0
+    right: 0
+    height: $h
+    display: flex
+    position: absolute
+    margin-right: 16px
+    align-items: center
+    input, select, button
+        padding: 4px
+        appearance: none
+        margin-left: 20px
+        border-radius: 0px
+        background-color: #ffffff
+        border: solid 1px #dddddd
+    button
+        outline: none
+        color: #ffffff
+        cursor: pointer
+        padding: 4px 10px
+        background-color: #000000
+        border: solid 1px #000000
