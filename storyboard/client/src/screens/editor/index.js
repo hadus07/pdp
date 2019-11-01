@@ -11,6 +11,7 @@ export class Editor extends React.PureComponent {
     state = {
         name: '',
         story: '',
+        cover: '',
         category: '',
         modalVisible: false,
     }
@@ -24,6 +25,18 @@ export class Editor extends React.PureComponent {
     handleNameChange = ({ target }) => this.setState({ name: target.value })
 
     handleCategSelect = ({ target }) => this.setState({ category: target.value })
+
+    handleImageUpload = ({ nativeEvent }) => {
+        let photo = nativeEvent.target.files[0]
+        // let formData = new FormData()
+        // formData.append('photo', photo) // Send form data to BE
+        const reader = new FileReader()
+        reader.readAsDataURL(photo)
+        reader.addEventListener(
+            'load',
+            e => this.setState({ cover: e.target.result }),
+        )
+    }
 
     render = () => (
         <div className={styles.cont}>
@@ -52,8 +65,10 @@ export class Editor extends React.PureComponent {
                 <button onClick={this.handleAddPhoto}>Save</button>
             </div>
             <ImageModal
+                image={this.state.cover}
                 onClose={this.handleModalClose}
                 visible={this.state.modalVisible}
+                onChange={this.handleImageUpload}
             />
         </div>
     )
