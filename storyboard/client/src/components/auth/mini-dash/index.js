@@ -14,7 +14,7 @@ export const MiniDash = props => (
         </div>
         <div className={styles.linkCont}>
             <Btn title='Editor' to='/editor' icon={<FaPen/>}/>
-            <Btn title='Dashboard' icon={<FaTools/>}/>
+            <Btn title='Dashboard' to='/dashboard' icon={<FaTools/>}/>
             <Btn
                 title='Logout'
                 icon={<FaSignOutAlt/>}
