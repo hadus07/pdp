@@ -1,8 +1,7 @@
 import React from 'react'
 import styles from './index.module.sass'
 import { FaSearch } from "react-icons/fa"
-
-const mockImage = 'https://marketplace.canva.com/MADSMNPt8uA/3/0/thumbnail_large/canva-green-beach-photo-book-cover-MADSMNPt8uA.jpg'
+import { SingleStory } from '../single-story'
 
 export class Search extends React.PureComponent {
 
@@ -53,7 +52,7 @@ export class Search extends React.PureComponent {
                         className={`${styles.listCont} ${scrollerClassVisible && styles.listNoScroller}`}
                     >
                         {new Array(20).fill(0).map((_, i) => (
-                            <ListItem key={i} title={i}/>
+                            <SingleStory key={i} title={i}/>
                         ))}
                     </div>
                 )}
@@ -61,13 +60,3 @@ export class Search extends React.PureComponent {
         )
     }
 }
-
-const ListItem = props => (
-    <div className={styles.list}>
-        <img src={mockImage} alt='Book cover'/>
-        <div>
-            <h1>Alibobo ⦁ Hafidiy ⦁ {props.title + 1}</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus consequatur magni doloribus saepe, reprehenderit reiciendis sed. Dolor quas earum modi!</p>
-        </div>
-    </div>
-)

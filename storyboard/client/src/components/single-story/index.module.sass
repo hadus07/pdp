@@ -1,0 +1,44 @@
+.list
+    display: flex
+    cursor: pointer
+    margin-bottom: 4vw
+    position: relative
+    border-radius: 10px
+    background-color: white
+    animation: popup 500ms cubic-bezier(0.3, 0.38, 0.2, 1.36)
+
+    &:hover
+        box-shadow: 0px 20px 25px -10px rgba(0,0,0,0.2)
+
+    img
+        width: 10vw
+        height: 10vw
+        margin-left: 2vw
+        object-fit: cover
+        border-radius: 5vw
+        transform: translateY(2vw)
+        box-shadow: 0px 20px 25px -10px rgba(0,0,0,0.6)
+
+    div
+        margin-top: 2vw
+        margin-left: 2vw
+        h1
+            font-weight: 500
+            color: #444444
+            font-size: 1.2em
+        p
+            font-weight: 200
+            word-spacing: 5px
+            font-size: 0.9em
+
+@keyframes popup
+    0%
+        transform: translateY(300px)
+        opacity: 0
+    100%
+        transform: translateY(0px)
+        opacity: 1
+
+@for $i from 1 to 5
+    .list:nth-of-type(#{$i})
+        animation-delay: $i * 200ms - 200ms

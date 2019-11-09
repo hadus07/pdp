@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from './index.module.sass'
-import Button from '@material-ui/core/Button'
+import { Input } from '../../components/input'
+import { Button } from '../../components/button'
+import { SingleStory } from '../../components/single-story'
 
 const avatar = 'https://randomuser.me/api/portraits/men/32.jpg'
-const mockImage = 'https://marketplace.canva.com/MADSMNPt8uA/3/0/thumbnail_large/canva-green-beach-photo-book-cover-MADSMNPt8uA.jpg'
 
 export const Dashboard = props => {
 
@@ -22,27 +23,24 @@ export const Dashboard = props => {
                 <p>Total: 6</p>
             </div>
             <div className={styles.cont}>
-                {[1, 2, 3, 4, 5, 6].map(item => (
-                    <Story onClick={handleDelete}/>
-                ))}
+                <div className={styles.storyCont}>
+                    {[1, 2, 3, 4, 5, 6].map(item => (
+                        <SingleStory onClick={handleDelete}/>
+                    ))}
+                </div>
+                <div className={styles.profileCont}>
+                    <div className={styles.imgCont}>
+                        <img src={avatar} alt='Avatar'/>
+                        <Button title='Upload avatar'/>
+                    </div>
+                    <Input placeholder='Name'/>
+                    <p>Change Password</p>
+                    <Input placeholder='Old password'/>
+                    <Input placeholder='New password'/>
+                    <Input placeholder='Confirm password'/>
+                    <Button title='Save'/>
+                </div>
             </div>
         </div>
     )
 }
-
-const Story = props => (
-    <div className={styles.storyCont}>
-        <img src={mockImage} alt='Story'/>
-        <h1>Alibobo</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat incidunt magni itaque debitis. Officiis modi natus voluptatem optio, magni fugiat id quod sint odio nisi rem reiciendis, vitae totam ea.</p>
-        <Button
-            size="small"
-            color="secondary"
-            variant='outlined'
-            onClick={props.onClick}
-            className={styles.btn}
-        >
-            Delete
-        </Button>
-    </div>
-)

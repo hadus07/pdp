@@ -12,7 +12,7 @@ export const ImageModal = props => (
         className={styles.modal}
     >
         <Paper className={styles.cont}>
-            <img src={props.image || 'https://images1.penguinrandomhouse.com/cover/9781594633409'}/>
+            <img src={props.image || 'https://images1.penguinrandomhouse.com/cover/9781594633409'} alt='Cover'/>
             <div>
                 <input type='file' id='fileUploader' onChange={props.onChange}/>
                 <Button size="small" color="primary" variant='outlined'>
