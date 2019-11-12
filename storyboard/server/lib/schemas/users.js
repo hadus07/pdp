@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.User = undefined;
 
+var _env = require('../env');
+
 var _mongoose = require('mongoose');
 
 var userSchema = new _mongoose.Schema({
@@ -17,7 +19,7 @@ var userSchema = new _mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: 'localhost:4000/public/avatars/avatar.png'
+        default: _env.URL + '/avatars/avatar.png'
     },
     name: {
         type: String,

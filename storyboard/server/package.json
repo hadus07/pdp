@@ -9,6 +9,7 @@
   "author": "Ibrohim Bahromov",
   "license": "ISC",
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "express": "^4.17.1",
     "mongoose": "^5.7.9"
   },

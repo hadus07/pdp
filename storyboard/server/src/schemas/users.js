@@ -1,3 +1,4 @@
+import { URL } from '../env'
 import { Schema, model } from 'mongoose'
 
 const userSchema = new Schema({
@@ -10,7 +11,7 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String,
-        default: 'localhost:4000/avatars/avatar.png'
+        default: `${URL}/avatars/avatar.png`
     },
     name: {
         type: String,
