@@ -39,7 +39,7 @@ export class Editor extends React.PureComponent {
     }
 
     render = () => (
-        <div className={styles.cont}>
+        <div>
             <Quill
                 theme='snow'
                 modules={modules}
