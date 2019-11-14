@@ -5,12 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.registration = undefined;
 
-var _aes = require('crypto-js/aes');
-
-var _aes2 = _interopRequireDefault(_aes);
-
-var _env = require('../env');
-
 var _express = require('express');
 
 var _sha = require('crypto-js/sha256');
@@ -18,6 +12,8 @@ var _sha = require('crypto-js/sha256');
 var _sha2 = _interopRequireDefault(_sha);
 
 var _users = require('../schemas/users');
+
+var _helpers = require('../helpers');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,12 +26,12 @@ registration.post('/', async function (req, res) {
         user.password = (0, _sha2.default)(user.password);
         var addedUser = await _users.User.insertMany([user]);
         if (addedUser) {
-            console.log(_env.CYPHER);
-            var token = _aes2.default.encrypt(user.email + '|' + (new Date().valueOf() + 3600000 * 24), _env.CYPHER + '');
-            res.json({ token: token.toString() });
+            res.json({ token: (0, _helpers.generateToken)(user.email) });
+        } else {
+            res.json((0, _helpers.sendError)('cannot_create_user'));
         }
     } else {
-        res.json({ error: 'user_already_exists' });
+        res.json((0, _helpers.sendError)('user_already_exists'));
     }
 });
 

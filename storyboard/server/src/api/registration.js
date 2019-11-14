@@ -1,8 +1,7 @@
-import aes from 'crypto-js/aes'
-import { CYPHER } from '../env'
 import { Router } from 'express'
 import sha256 from 'crypto-js/sha256'
 import { User } from '../schemas/users'
+import { sendError, generateToken } from '../helpers'
 
 const registration = Router()
 
@@ -13,14 +12,12 @@ registration.post('/', async (req, res) => {
         user.password = sha256(user.password)
         let addedUser = await User.insertMany([user])
         if (addedUser) {
-            let str = `${user.email}|${new Date().valueOf() + (3600000 * 24)}`
-            let token = aes.encrypt(str, CYPHER.toString())
-            res.json({ token: token.toString() })
+            res.json({ token: generateToken(user.email) })
         } else {
-            res.json({ error: 'cannot_create_user' })    
+            res.json(sendError('cannot_create_user'))    
         }
     } else {
-        res.json({ error: 'user_already_exists' })
+        res.json(sendError('user_already_exists'))
     }
 })
 
