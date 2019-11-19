@@ -36,7 +36,7 @@ var checkToken = exports.checkToken = async function checkToken(req, res, next) 
         var email = token.split('|')[0];
         var expDate = token.split('|')[1];
 
-        if (expDate >= new Date().valueOf()) {
+        if (expDate <= new Date().valueOf()) {
             res.json(sendError('token_expired'));
         } else {
             var user = await _users.User.findOne({ email: email });
