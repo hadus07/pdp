@@ -13,6 +13,7 @@ var story = (0, _express.Router)();
 
 story.post('/', _helpers.checkToken, async function (req, res) {
     console.log(req.user);
+    // TODO
 });
 
 exports.story = story;

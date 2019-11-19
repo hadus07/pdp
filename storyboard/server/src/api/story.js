@@ -5,6 +5,7 @@ const story = Router()
 
 story.post('/', checkToken, async (req, res) => {
     console.log(req.user)
+    // TODO
 })
 
 export { story }
