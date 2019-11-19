@@ -10,6 +10,8 @@ var _express2 = _interopRequireDefault(_express);
 
 var _login = require('./api/login');
 
+var _story = require('./api/story');
+
 var _mongoose = require('mongoose');
 
 var _registration = require('./api/registration');
@@ -23,6 +25,7 @@ server.use(_express2.default.json());
 server.use(_express2.default.static(_path2.default.join(__dirname, '../public')));
 
 server.use('/api/login', _login.login);
+server.use('/api/story', _story.story);
 server.use('/api/registration', _registration.registration);
 
 var PORT = process.env.PORT || 4000;

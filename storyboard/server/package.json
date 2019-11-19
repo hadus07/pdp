@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "babel --presets es2015 -d lib/ src && nodemon lib/index.js"
+    "dev": "babel --presets es2015 -d lib/ src && nodemon lib"
   },
   "author": "Ibrohim Bahromov",
   "license": "ISC",
