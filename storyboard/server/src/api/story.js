@@ -1,11 +1,40 @@
 import { Router } from 'express'
-import { checkToken } from '../helpers'
+import { User } from '../schemas/users'
+import { Story } from '../schemas/stories'
+import { checkToken, sendError } from '../helpers'
 
 const story = Router()
 
+story.get('/', async (req, res) => {
+    let opts = {
+        path: 'author',
+        select: 'name avatar',
+    }
+    res.json(await Story.find().populate(opts))
+})
+
+story.delete('/', checkToken, async (req, res) => {
+    let { id } = req.body
+    await User.findByIdAndUpdate(
+        req.currentUser._id,
+        { $pull: { stories: id } },
+    )
+    await Story.findByIdAndDelete(id)
+    res.json({ id })
+})
+
 story.post('/', checkToken, async (req, res) => {
-    console.log(req.user)
-    // TODO
+    let story = req.body
+    story.author = req.currentUser._id
+
+    let addedStory = await Story.insertMany([story])
+    
+    await User.findByIdAndUpdate(
+        req.currentUser._id,
+        { $push: { stories: addedStory[0]._id } }
+    )
+
+    res.json({ message: 'success' })
 })
 
 export { story }

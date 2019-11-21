@@ -13,10 +13,13 @@ var storySchema = new _mongoose.Schema({
     title: String,
     content: String,
     category: String,
-    author_id: _mongoose.Schema.Types.ObjectId,
     date_created: {
         type: Date,
         default: Date.now
+    },
+    author: {
+        ref: 'Users',
+        type: _mongoose.Schema.Types.ObjectId
     },
     cover: {
         type: String,

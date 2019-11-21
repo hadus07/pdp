@@ -29,7 +29,7 @@ var generateToken = exports.generateToken = function generateToken(email) {
 };
 
 var checkToken = exports.checkToken = async function checkToken(req, res, next) {
-    var token = req.body && req.body.token;
+    var token = req.body.token;
 
     if (token) {
         token = _aes2.default.decrypt(token, _env.CYPHER).toString(_encUtf2.default);
@@ -40,9 +40,13 @@ var checkToken = exports.checkToken = async function checkToken(req, res, next) 
             res.json(sendError('token_expired'));
         } else {
             var user = await _users.User.findOne({ email: email });
-            req.user = user;
-            delete req.body.token;
-            next();
+            if (user) {
+                req.currentUser = user;
+                delete req.body.token;
+                next();
+            } else {
+                res.json(sendError('invalid_token'));
+            }
         }
     } else {
         res.json(sendError('no_token_sent'));

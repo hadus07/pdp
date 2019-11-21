@@ -5,10 +5,13 @@ const storySchema = new Schema({
     title: String,
     content: String,
     category: String,
-    author_id: Schema.Types.ObjectId,
     date_created: {
         type: Date,
         default: Date.now, 
+    },
+    author: {
+        ref: 'Users',
+        type: Schema.Types.ObjectId,
     },
     cover: {
         type: String,

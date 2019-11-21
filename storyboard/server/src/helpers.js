@@ -11,7 +11,7 @@ export const generateToken = email => {
 }
 
 export const checkToken = async (req, res, next) => {
-    let token = req.body && req.body.token
+    let token = req.body.token
 
     if (token) {
         token = aes.decrypt(token, CYPHER).toString(utf8)
@@ -22,11 +22,14 @@ export const checkToken = async (req, res, next) => {
             res.json(sendError('token_expired'))
         } else {
             let user = await User.findOne({ email })
-            req.user = user
-            delete req.body.token
-            next()
-        } 
-        
+            if (user) {
+                req.currentUser = user
+                delete req.body.token
+                next()
+            } else {
+                res.json(sendError('invalid_token'))
+            }
+        }
     } else {
         res.json(sendError('no_token_sent'))
     }

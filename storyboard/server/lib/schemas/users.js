@@ -12,11 +12,14 @@ var _mongoose = require('mongoose');
 var userSchema = new _mongoose.Schema({
     email: String,
     password: String,
-    stories: [_mongoose.Schema.Types.ObjectId],
     date_created: {
         type: Date,
         default: Date.now
     },
+    stories: [{
+        ref: 'Stories',
+        type: _mongoose.Schema.Types.ObjectId
+    }],
     avatar: {
         type: String,
         default: _env.URL + '/avatars/avatar.png'
