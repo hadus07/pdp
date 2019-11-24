@@ -4,6 +4,10 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
+var _cors = require('cors');
+
+var _cors2 = _interopRequireDefault(_cors);
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -21,6 +25,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _mongoose.connect)('mongodb://localhost/storyboard', { useNewUrlParser: true });
 
 var server = (0, _express2.default)();
+
+server.use((0, _cors2.default)());
 server.use(_express2.default.json());
 server.use(_express2.default.static(_path2.default.join(__dirname, '../public')));
 

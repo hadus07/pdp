@@ -12,7 +12,13 @@ registration.post('/', async (req, res) => {
         user.password = sha256(user.password)
         let addedUser = await User.insertMany([user])
         if (addedUser) {
-            res.json({ token: generateToken(user.email) })
+            res.json({
+                name: addedUser[0].name,
+                email: addedUser[0].email,
+                avatar: addedUser[0].avatar,
+                stories: addedUser[0].stories,
+                token: generateToken(user.email)
+            })
         } else {
             res.json(sendError('cannot_create_user'))    
         }

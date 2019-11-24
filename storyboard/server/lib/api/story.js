@@ -26,10 +26,9 @@ story.get('/', async function (req, res) {
 story.delete('/', _helpers.checkToken, async function (req, res) {
     var id = req.body.id;
 
-    var deleted = await _stories.Story.findByIdAndDelete(id);
-    console.log(deleted);
     await _users.User.findByIdAndUpdate(req.currentUser._id, { $pull: { stories: id } });
-    res.json({ message: 'success' });
+    await _stories.Story.findByIdAndDelete(id);
+    res.json({ id: id });
 });
 
 story.post('/', _helpers.checkToken, async function (req, res) {

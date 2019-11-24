@@ -1,4 +1,5 @@
 import path from 'path'
+import cors from 'cors'
 import express from 'express'
 import { login } from './api/login'
 import { story } from './api/story'
@@ -8,6 +9,8 @@ import { registration } from './api/registration'
 connect('mongodb://localhost/storyboard', {useNewUrlParser: true})
 
 const server = express()
+
+server.use(cors())
 server.use(express.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
