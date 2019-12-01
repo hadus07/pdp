@@ -17,22 +17,20 @@ export const Register = observer(class Register extends React.Component {
 
     handleChange = ({ target }) => this.setState({ [target.name]: target.value })
 
-    handleSubmit = e => {
+    handleSubmit = async e => {
         e.preventDefault()
         const { email, password, rePassword } = this.state
 
         if (password !== rePassword) {
             alert('Passwords do not match')
         } else {
-            Api('registration', { email, password }, 'post')
-            .then(res => {
-                if (res.error) {
-                    console.log(res.error)
-                } else {
-                    console.log(res)
-                    setUser(res)
-                }
-            })
+            try {
+                let res = await Api('registration', { email, password }, 'post')
+                setUser(res)
+                this.props.onPageChange(pageNames.dashboard)
+            } catch(err) {
+                console.log(err)
+            }
         }
 
     }

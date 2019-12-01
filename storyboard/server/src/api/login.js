@@ -11,7 +11,13 @@ login.post('/', async (req, res) => {
 
     if(dbUser) {
         if (sha256(user.password).toString() === dbUser.password) {
-            res.json({ token: generateToken(dbUser.email) })
+            res.json({
+                name: dbUser.name,
+                email: dbUser.email,
+                avatar: dbUser.avatar,
+                stories: dbUser.stories,
+                token: generateToken(user.email)
+            })
         } else {
             res.json(sendError('incorrect_password'))
         }

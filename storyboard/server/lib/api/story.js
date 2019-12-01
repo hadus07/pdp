@@ -39,7 +39,7 @@ story.post('/', _helpers.checkToken, async function (req, res) {
 
     await _users.User.findByIdAndUpdate(req.currentUser._id, { $push: { stories: addedStory[0]._id } });
 
-    res.json({ message: 'success' });
+    res.json(addedStory[0]);
 });
 
 exports.story = story;

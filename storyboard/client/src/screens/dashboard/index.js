@@ -1,12 +1,12 @@
 import React from 'react'
+import { User } from '../../store'
+import { observer } from 'mobx-react'
 import styles from './index.module.sass'
 import { Input } from '../../components/input'
 import { Button } from '../../components/button'
 import { SingleStory } from '../../components/single-story'
 
-const avatar = 'https://randomuser.me/api/portraits/men/32.jpg'
-
-export const Dashboard = props => {
+export const Dashboard = observer(props => {
 
     const handleDelete = () => {
         let answer = window.confirm('Are you sure to delete this story?')
@@ -17,20 +17,20 @@ export const Dashboard = props => {
         <div className={styles.wrapper}>
             <div className={styles.bar}>
                 <div className={styles.row}>
-                    <img src={avatar} alt="Avatar"/>
-                    <p>Hafadiy</p>
+                    <img src={User.avatar} alt="Avatar"/>
+                    <p>{User.name}</p>
                 </div>
-                <p>Total: 6</p>
+                <p>Total: {User.stories.length}</p>
             </div>
             <div className={styles.cont}>
                 <div className={styles.storyCont}>
-                    {[1, 2, 3, 4, 5, 6].map(item => (
-                        <SingleStory onClick={handleDelete}/>
+                    {User.stories.map(item => (
+                        <SingleStory {...item} onClick={handleDelete}/>
                     ))}
                 </div>
                 <div className={styles.profileCont}>
                     <div className={styles.imgCont}>
-                        <img src={avatar} alt='Avatar'/>
+                        <img src={User.avatar} alt='Avatar'/>
                         <Button title='Upload avatar'/>
                     </div>
                     <Input placeholder='Name'/>
@@ -43,4 +43,4 @@ export const Dashboard = props => {
             </div>
         </div>
     )
-}
+})

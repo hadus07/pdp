@@ -34,7 +34,7 @@ story.post('/', checkToken, async (req, res) => {
         { $push: { stories: addedStory[0]._id } }
     )
 
-    res.json({ message: 'success' })
+    res.json(addedStory[0])
 })
 
 export { story }

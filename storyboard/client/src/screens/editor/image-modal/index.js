@@ -15,10 +15,10 @@ export const ImageModal = props => (
             <img src={props.image || 'https://images1.penguinrandomhouse.com/cover/9781594633409'} alt='Cover'/>
             <div>
                 <input type='file' id='fileUploader' onChange={props.onChange}/>
-                <Button size="small" color="primary" variant='outlined'>
+                <Button onClick={props.onAddPhoto} size="small" color="primary" variant='outlined'>
                     <label htmlFor='fileUploader'>Add Cover Photo</label>
                 </Button>
-                <Button size="small" color="primary" variant='contained'>
+                <Button onClick={props.onSave} size="small" color="primary" variant='contained'>
                     Save
                 </Button>
             </div>

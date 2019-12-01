@@ -1,15 +1,26 @@
 import { observable, action } from 'mobx'
 
-export let User = observable({
+export const defaultUser = {
     name: '',
     email: '',
+    token: '',
     avatar: '',
     stories: [],
-    token: localStorage.getItem('token'),
-})
+}
+
+export let User = observable(JSON.parse(localStorage.getItem('user')) || defaultUser)
 
 export const setUser = action(data => {
     User = { ...User, ...data }
-    localStorage.setItem('token', data.token)
-    console.log(User)
+    saveUser(User)
 })
+
+export const setUserStory = action(data => {
+    User.stories.push(data)
+    saveUser(User)
+})
+
+const saveUser = data => {
+    localStorage.setItem('user', JSON.stringify(data))
+    console.log(User)
+}

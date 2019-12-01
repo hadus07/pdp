@@ -4,15 +4,15 @@ import { FaPen } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { FaTools } from 'react-icons/fa'
 import styles from './index.module.sass'
-import { setUser } from '../../../store'
 import { pageNames } from '../constants'
 import { FaSignOutAlt } from 'react-icons/fa'
+import { User, setUser, defaultUser } from '../../../store'
 
 export const MiniDash = observer(props => (
     <div className={styles.cont}>
         <div className={styles.avatar}>
-            <img src='https://randomuser.me/api/portraits/men/32.jpg' alt='avatar'/>
-            <p>Al Hafidiy</p>
+            <img src={User.avatar} alt='avatar'/>
+            <p>{User.name}</p>
         </div>
         <div className={styles.linkCont}>
             <Btn title='Editor' to='/editor' icon={<FaPen/>}/>
@@ -20,7 +20,10 @@ export const MiniDash = observer(props => (
             <Btn
                 title='Logout'
                 icon={<FaSignOutAlt/>}
-                onClick={() => setUser({ token: '' })}
+                onClick={() => {
+                    setUser(defaultUser)
+                    props.onPageChange(pageNames.login)
+                }}
             />
         </div>
     </div>

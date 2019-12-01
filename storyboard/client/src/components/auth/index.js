@@ -13,9 +13,9 @@ class AuthComponent extends React.PureComponent {
 
     state = {
         animate: false,
-        component: User.token
+        component: User && User.token
             ? pageNames.dashboard
-            : pageNames.login,
+            : pageNames.register,
     }
 
     handlePageChange = com => {
@@ -25,9 +25,7 @@ class AuthComponent extends React.PureComponent {
     }
 
     renderComponent = () => {
-        let component = User.token
-            ? pageNames.dashboard
-            : pageNames.login
+        let component = this.state.component
         const { dashboard, login, register } = pageNames
 
         if(component === login)
