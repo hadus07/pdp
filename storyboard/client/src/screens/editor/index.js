@@ -2,20 +2,23 @@ import React from 'react'
 import Quill from 'react-quill'
 import { Api } from '../../api'
 import styles from './index.module.sass'
+import { getToken } from '../../helpers'
 import 'react-quill/dist/quill.snow.css'
 import { ImageModal } from './image-modal'
 import { categories } from '../../constants'
 import { modules, formats } from './constants'
-import { User, setUserStory } from '../../store'
+
+let initialState = {
+    name: '',
+    story: '',
+    cover: '',
+    category: '',
+    modalVisible: false,
+}
 
 export class Editor extends React.PureComponent {
-
     state = {
-        name: '',
-        story: '',
-        cover: '',
-        category: '',
-        modalVisible: false,
+        ...initialState,        
     }
 
     handleChange = story => this.setState({ story })
@@ -30,8 +33,9 @@ export class Editor extends React.PureComponent {
 
     handleImageUpload = ({ nativeEvent }) => {
         let photo = nativeEvent.target.files[0]
-        // let formData = new FormData()
-        // formData.append('photo', photo) // Send form data to BE
+        let formData = new FormData()
+        formData.append('photo', photo) // Send form data to BE
+        this.setState({ cover: formData })
         const reader = new FileReader()
         reader.readAsDataURL(photo)
         reader.addEventListener(
@@ -47,11 +51,13 @@ export class Editor extends React.PureComponent {
             category,
             title: name,
             content: story,
-            token: User.token,
+            token: getToken(),
         }
         try {
-            let res = await Api('story', tmp, 'post')
-            setUserStory(res)
+            await Api('story', tmp, 'post')
+            alert('Story has been added')
+            this.setState(initialState)
+
         } catch(err) {
             console.log(err)
         }

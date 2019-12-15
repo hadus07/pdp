@@ -4,7 +4,7 @@ import { Input } from '../../input'
 import { Button } from '../../button'
 import styles from './index.module.sass'
 import { pageNames } from '../constants'
-import { setUser } from '../../../store'
+import { setToken } from '../../../helpers'
 
 export class Login extends React.PureComponent {
     state = {
@@ -18,12 +18,11 @@ export class Login extends React.PureComponent {
         e.preventDefault()
         const { email, password } = this.state
 
-        try {
-            let res = await Api('login', { email, password }, 'post')
-            setUser(res)
+        let res = await Api('login', { email, password }, 'post')
+        if (res.error) alert(res.error)
+        else {
+            setToken(res.token)
             this.props.onPageChange(pageNames.dashboard)
-        } catch(err) {
-            console.log(err)
         }
 
     }

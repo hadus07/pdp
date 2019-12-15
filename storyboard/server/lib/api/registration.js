@@ -26,13 +26,7 @@ registration.post('/', async function (req, res) {
         user.password = (0, _sha2.default)(user.password);
         var addedUser = await _users.User.insertMany([user]);
         if (addedUser) {
-            res.json({
-                name: addedUser[0].name,
-                email: addedUser[0].email,
-                avatar: addedUser[0].avatar,
-                stories: addedUser[0].stories,
-                token: (0, _helpers.generateToken)(user.email)
-            });
+            res.json({ token: (0, _helpers.generateToken)(user.email) });
         } else {
             res.json((0, _helpers.sendError)('cannot_create_user'));
         }

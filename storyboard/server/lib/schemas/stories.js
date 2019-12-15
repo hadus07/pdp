@@ -23,7 +23,7 @@ var storySchema = new _mongoose.Schema({
     },
     cover: {
         type: String,
-        default: _env.URL + '/covers/avatar.png'
+        default: _env.URL + '/covers/cover.png'
     }
 });
 

@@ -25,13 +25,7 @@ login.post('/', async function (req, res) {
 
     if (dbUser) {
         if ((0, _sha2.default)(user.password).toString() === dbUser.password) {
-            res.json({
-                name: dbUser.name,
-                email: dbUser.email,
-                avatar: dbUser.avatar,
-                stories: dbUser.stories,
-                token: (0, _helpers.generateToken)(user.email)
-            });
+            res.json({ token: (0, _helpers.generateToken)(user.email) });
         } else {
             res.json((0, _helpers.sendError)('incorrect_password'));
         }

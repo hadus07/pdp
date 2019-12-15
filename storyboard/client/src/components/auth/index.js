@@ -1,11 +1,11 @@
 import React from 'react'
 import { Login } from './login'
-import { User } from '../../store'
 import { Register } from './register'
 import { observer } from 'mobx-react'
 import { MiniDash } from './mini-dash'
 import { pageNames } from './constants'
 import styles from './index.module.sass'
+import { getToken } from '../../helpers'
 
 class AuthComponent extends React.PureComponent {
 
@@ -13,7 +13,7 @@ class AuthComponent extends React.PureComponent {
 
     state = {
         animate: false,
-        component: User && User.token
+        component: getToken()
             ? pageNames.dashboard
             : pageNames.register,
     }

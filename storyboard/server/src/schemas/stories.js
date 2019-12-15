@@ -15,7 +15,7 @@ const storySchema = new Schema({
     },
     cover: {
         type: String,
-        default: `${URL}/covers/avatar.png`
+        default: `${URL}/covers/cover.png`
     },
 })
 

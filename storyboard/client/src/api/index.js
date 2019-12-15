@@ -1,4 +1,4 @@
-import { setUser, defaultUser } from '../store'
+import { setToken } from '../store'
 
 export const Api = (url, data = null, type = 'get') => {
 
@@ -12,10 +12,15 @@ export const Api = (url, data = null, type = 'get') => {
     }
 
     return fetch(`http://localhost:4000/api/${url}`, opts)
-        .then(res => res.json()).then(res => res)
-        .catch(err => {
-            if(err.error === 'invalid_token' || err.error === 'token_expired') {
-                setUser(defaultUser)
+        .then(res => res.json())
+        .then(res => {
+            if(res.error) {
+                alert(res.error)
+                if(res.error === 'invalid_token' || res.error === 'token_expired') {
+                    setToken()   
+                }
+            }else {
+                return res
             }
         })
 

@@ -3,9 +3,9 @@ import { Api } from '../../../api'
 import { Input } from '../../input'
 import { Button } from '../../button'
 import { observer } from 'mobx-react'
-import { setUser } from '../../../store'
 import { pageNames } from '../constants'
 import styles from './index.module.sass'
+import { setToken } from '../../../store'
 
 export const Register = observer(class Register extends React.Component {
 
@@ -24,12 +24,11 @@ export const Register = observer(class Register extends React.Component {
         if (password !== rePassword) {
             alert('Passwords do not match')
         } else {
-            try {
-                let res = await Api('registration', { email, password }, 'post')
-                setUser(res)
+            let res = await Api('registration', { email, password }, 'post')
+            if (res.error) alert(res.error)
+            else {
+                setToken(res.token)
                 this.props.onPageChange(pageNames.dashboard)
-            } catch(err) {
-                console.log(err)
             }
         }
 
