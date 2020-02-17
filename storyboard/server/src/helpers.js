@@ -14,8 +14,7 @@ export const checkToken = async (req, res, next) => {
     let token = req.body.token
 
     if (token) {
-        token = aes.decrypt(token, CYPHER).toString(utf8)
-        let [email, expDate] = token.split('|')[0]
+        let [email, expDate] = aes.decrypt(token, CYPHER).toString(utf8).split('|')[0]
 
         if (expDate <= new Date().valueOf()) {
             res.json(sendError('token_expired'))
